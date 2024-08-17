@@ -87,10 +87,10 @@ function onCallUserIdsForEvent(eventType, patientType) {
     let onCallUserIds;
     groups.forEach((group) => {
         if(group['events'].some(event => event['type'] == eventType && event['patients'].includes(patientType))) {
-            onCallUserIds = group["users"].filter((user) => user.on_call).map((user) => user["id"])
+            onCallUserIds = group["users"].filter((user) => user.on_call).map((user) => user["id"]);
         }
     })
-    return onCallUserIds
+    return onCallUserIds;
 }
 
 /**
@@ -100,13 +100,13 @@ function onCallUserIdsForEvent(eventType, patientType) {
  *                        [{ "id": 1, "name": "Emergency Department" }]
  */
 function onCallGroups(userId) {
-    let onCallGroups = []
+    let onCallGroups = [];
     groups.forEach((group) =>  {
         if(group['users'].some(user => user['id'] == userId && user['on_call'] == true)) {
-            onCallGroups.push({"id":group["id"], "name":group["name"]})
+            onCallGroups.push({"id":group["id"], "name":group["name"]});
         }
-    })
-    return onCallGroups
+    });
+    return onCallGroups;
 }
 
 // todo(matthew): learn how to test array equality properly in plain JS xD
